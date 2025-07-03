@@ -1,0 +1,122 @@
+.pendente, .concluida {
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .pendente, .dark .concluida {
+    background-color: #2b2b2b;
+    color: #f0f0f0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+/* Classe para alinhar nome + botão */
+.task-line { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.concluida{
+    background-color: green;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* efeito saltado */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.concluida button{
+    background-color: white;
+    color: green;
+}
+
+.dark .concluida{
+    background-color: green;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* efeito saltado */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.dark .concluida button{
+    background-color: white;
+    color: green;
+}
+
+/* Botão deletar */
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    margin-left: 10px;
+    border: none;
+    padding: 9px 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #a71d2a;
+}
+
+/* Tema escuro para botão deletar */
+.dark .delete-button {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.dark .delete-button:hover {
+    background-color: #cc0000;
+}
+
+/* Input de adicionar task */
+.form-task {
+    display: flex;
+    margin: 30px auto;
+    max-width: 90%;
+    gap: 10px;
+}
+
+.form-task input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-task button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.form-task button:hover {
+    background-color: #0056b3;
+}
+
+/* Tema escuro para o formulário */
+.dark .form-task input {
+    background-color: #3a3a3a;
+    color: #f0f0f0;
+    border: 1px solid #555;
+}
+
+.dark .form-task button {
+    background-color: #3390ff;
+    color: white;
+}
+
+.dark .form-task button:hover {
+    background-color: #1d5fa5;
+}

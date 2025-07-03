@@ -1,0 +1,37 @@
+.light, .dark {
+  min-height: 100vh; /* Garante que a div ocupe toda a altura da tela */
+  width: 100vw;       /* Garante que ocupe toda a largura da tela */
+  padding: 20px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tema claro */
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Tema escuro */
+.dark {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+/* Estilo opcional para o botão */
+.themeButton {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  margin-bottom: 20px;
+  display: flex;
+  justify-self: center;
+}
+
+.dark .themeButton {
+  background-color: white;
+  color: black;
+}
