@@ -141,8 +141,6 @@ export default function Dashboard() {
                                     </span>
                                 </div>
                             </div>
-
-                            <span>{item.texto}</span>
                             <button onClick={() => handleToggle(item.id)}>{item.status ? 'Desmarcar' : 'Concluir'}</button>
                         </li>
 
