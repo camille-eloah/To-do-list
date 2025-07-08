@@ -6,6 +6,9 @@ export default function Dashboard() {
     const [newTaskTitle, setNewTaskTitle] = useState("")
     const [lista, setLista] = useState([])
 
+    const [newTaskDueDate, setNewTaskDueDate] = useState("")
+    const [newTaskPriority, setNewTaskPriority] = useState("medium")
+
 
 
     const handleSubmit = (e) => {
@@ -18,11 +21,16 @@ export default function Dashboard() {
         const newTask = {
             id: Math.floor(Math.random() * 10000),
             texto: newTaskTitle,
-            status: false
-        }
+            status: false,
+            dueDate: newTaskDueDate,
+            priority: newTaskPriority
+        };
 
         setLista([...lista, newTask])
         setNewTaskTitle('')
+        setNewTaskDueDate('')
+        setNewTaskPriority('medium')
+
 
     }
 
@@ -80,6 +88,19 @@ export default function Dashboard() {
                     value={newTaskTitle}
                     onChange={(e) => setNewTaskTitle(e.target.value)}
                 />
+                <input
+                    type="date"
+                    value={newTaskDueDate}
+                    onChange={(e) => setNewTaskDueDate(e.target.value)}
+                />
+                <select
+                    value={newTaskPriority}
+                    onChange={(e) => setNewTaskPriority(e.target.value)}
+                >
+                    <option value="high">Alta</option>
+                    <option value="medium">Média</option>
+                    <option value="low">Baixa</option>
+                </select>
                 <button type="submit">Adicionar</button>
             </form>
             <button onClick={handleClear}>Reset</button>
@@ -88,7 +109,8 @@ export default function Dashboard() {
 
                 <ul >
                     {lista.map((item, index) =>
-                        <li key={item.id} className={item.status ? 'concluida' : ''}>
+
+                        <li key={item.id} className={`${item.status ? 'concluida' : ''} priority-${item.priority}`}>
                             <div className="controles-ordem">
                                 <button
                                     onClick={() => handleMove(item.id, 'subir')}
@@ -105,6 +127,21 @@ export default function Dashboard() {
                                     ↓
                                 </button>
                             </div>
+                            <div className="task-info">
+                                <span className="task-title">{item.texto}</span>
+                                <div className="task-meta">
+                                    {item.dueDate && (
+                                        <span className="due-date">
+                                            {new Date(item.dueDate).toLocaleDateString()}
+                                        </span>
+                                    )}
+                                    <span className={`priority-badge priority-${item.priority}`}>
+                                        {item.priority === 'high' ? 'Alta' :
+                                            item.priority === 'medium' ? 'Média' : 'Baixa'}
+                                    </span>
+                                </div>
+                            </div>
+
                             <span>{item.texto}</span>
                             <button onClick={() => handleToggle(item.id)}>{item.status ? 'Desmarcar' : 'Concluir'}</button>
                         </li>
