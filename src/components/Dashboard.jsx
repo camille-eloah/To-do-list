@@ -28,10 +28,10 @@ export default function Dashboard() {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        if (!newTaskTitle) {
+        e.preventDefault() // Evita que o formulário recarregue a página ao ser enviado
+        if (!newTaskTitle) { 
             return
-        }
+        } // Não permite adicionar tarefa sem nome
 
         //tarefa agora passa a ser um objeto. Com isso adiconamos o status e o seu id (função para gerar aleatória)
         const newTask = {
@@ -42,12 +42,14 @@ export default function Dashboard() {
             priority: newTaskPriority
         };
 
-        setLista([...lista, newTask])
+        setLista([...lista, newTask]) // Atualiza a lista de tarefas, adicionando a nova ao final do array existente
+        
+        // Limpa os campos do formulário, resentando para os valores padrão
         setNewTaskTitle('')
         setNewTaskDueDate('')
         setNewTaskPriority('medium')
 
-
+        
     }
 
     //função para alterar o status da tarefa. Aqui optamos por trabalhar com dois estados: concluída ou não.
