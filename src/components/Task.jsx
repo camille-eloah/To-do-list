@@ -1,13 +1,15 @@
-import { useState } from "react"; 
-import "./Task.css" 
+import { useState } from "react";
+import "./Task.css"
 
-export default function Task({id, name, onDelete}) 
-{
-    const [status, setStatus] = useState('pendente') 
+export default function Task({ id, name, onDelete }) {
+    const [status, setStatus] = useState('pendente')
+
+    const isOverdue = dueDate && new Date(dueDate) < new Date() && status !== 'concluida';
+
 
     const toggleTask = () => {
         setStatus((prev) => (prev === 'pendente' ? 'concluida' : 'pendente'))
-    }; 
+    };
 
     const handleDelete = () => {
         onDelete(id);
@@ -17,15 +19,15 @@ export default function Task({id, name, onDelete})
         <div className={status}>
             <div className="task-line">
                 <h2>{name}</h2>
-                <div className="acoes"> 
+                <div className="acoes">
                     <button onClick={toggleTask}>
-                    {status === "concluida" ? "Desmarcar" : "Concluir"}
+                        {status === "concluida" ? "Desmarcar" : "Concluir"}
                     </button>
                     <button onClick={handleDelete} className="delete-button">
-                        Apagar 
+                        Apagar
                     </button>
                 </div>
             </div>
         </div>
-    ); 
+    );
 }

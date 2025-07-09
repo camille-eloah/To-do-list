@@ -120,3 +120,71 @@
 .dark .form-task button:hover {
     background-color: #1d5fa5;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: white;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+li span {
+  font-size: 1.17em; /* tamanho padrão de h3 */
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+.dark li span {
+  font-size: 1.17em; /* tamanho padrão de h3 */
+  font-weight: bold;
+  margin: 0.5em 0;
+  color: black;
+}
+
+/* Estilos para prioridades */
+.priority-high {
+    border-left: 5px solid #dc3545;
+}
+
+.priority-medium {
+    border-left: 5px solid #ffc107;
+}
+
+.priority-low {
+    border-left: 5px solid #28a745;
+}
+
+/* Estilo para tarefas atrasadas */
+.overdue {
+    border-left: 5px solid #6c757d;
+    background-color: #ffecec !important;
+}
+
+.dark .overdue {
+    background-color: #3a2525 !important;
+}
+
+/* Estilo para exibição de data */
+.due-date {
+    font-size: 0.8em;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+.dark .due-date {
+    color: #adb5bd;
+}
+
+.overdue .due-date {
+    color: #dc3545;
+    font-weight: bold;
+}
