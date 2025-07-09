@@ -18,3 +18,233 @@ h1 {
     display: flex;
     justify-self: center;
 }
+
+
+/* Estilos para as novas informações */
+.task-info {
+  flex: 1;
+  margin: 0 15px;
+}
+
+.task-meta {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+  font-size: 0.85em;
+  color: #666;
+}
+
+.dark .task-meta {
+  color: #aaa;
+}
+
+.due-date {
+  background-color: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.dark .due-date {
+  background-color: #3a3a3a;
+}
+
+.priority-badge {
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.priority-high {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.priority-medium {
+  background-color: #fff8e1;
+  color: #f57f17;
+}
+
+.priority-low {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.dark .priority-high {
+  background-color: #3d1a1a;
+  color: #ff8a80;
+}
+
+.dark .priority-medium {
+  background-color: #3a2e0a;
+  color: #ffe082;
+}
+
+.dark .priority-low {
+  background-color: #1a3a1a;
+  color: #a5d6a7;
+}
+
+/* Estilo para os itens da lista */
+li {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  background-color: #fff;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.dark li {
+  background-color: #2b2b2b;
+}
+
+.concluida {
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+/* Estilos para o modal de confirmação */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dark .modal {
+  background-color: #2b2b2b;
+  color: #f0f0f0;
+}
+
+.modal h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.dark .modal h3 {
+  color: #f0f0f0;
+}
+
+.modal p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.dark .modal p {
+  color: #ccc;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.confirm-button {
+  padding: 8px 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.confirm-button:hover {
+  background-color: #c82333;
+}
+
+.cancel-button {
+  padding: 8px 16px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+  background-color: #5a6268;
+}
+
+/* Estilo para o botão de lixeira */
+.delete-task-button {
+  padding: 6px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.trash-icon {
+  width: 20px;
+  height: 20px;
+  filter: invert(25%) sepia(98%) saturate(3554%) hue-rotate(343deg) brightness(89%) contrast(83%);
+  transition: all 0.3s ease;
+}
+
+.delete-task-button:hover .trash-icon {
+  filter: invert(15%) sepia(98%) saturate(4554%) hue-rotate(343deg) brightness(99%) contrast(93%);
+}
+
+.dark .trash-icon {
+  filter: invert(65%) sepia(98%) saturate(3554%) hue-rotate(343deg) brightness(89%) contrast(83%);
+}
+
+.dark .delete-task-button:hover .trash-icon {
+  filter: invert(25%) sepia(98%) saturate(5554%) hue-rotate(343deg) brightness(99%) contrast(93%);
+}
+
+
+/* Input de adicionar task */
+
+.form-task {
+    display: flex;
+    margin: 30px auto;
+    max-width: 90%;
+    gap: 10px;
+}
+
+.form-task input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-task button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.form-task button:hover {
+    background-color: #0056b3;
+} 
