@@ -161,7 +161,7 @@ export default function Dashboard() {
                                 <div className="task-meta">
                                     {item.dueDate && (
                                         <span className="due-date">
-                                            {new Date(item.dueDate).toLocaleDateString()}
+                                            <strong>Prazo:</strong> {new Date(item.dueDate).toLocaleDateString()}
                                         </span>
                                     )}
                                     <span className={`priority-badge priority-${item.priority}`}>
