@@ -1,4 +1,6 @@
-import Task from "./Task";
+import trashIcon from '../assets/lixeira.png';
+
+// import Task from "./Task";
 import "./Dashboard.css"
 import { useState } from "react";
 
@@ -8,8 +10,22 @@ export default function Dashboard() {
 
     const [newTaskDueDate, setNewTaskDueDate] = useState("")
     const [newTaskPriority, setNewTaskPriority] = useState("medium")
+    const [showResetModal, setShowResetModal] = useState(false);
+    const [taskToDelete, setTaskToDelete] = useState(null);
 
 
+    const handleDeleteTask = (id) => {
+        setTaskToDelete(id);
+    };
+
+    const confirmDelete = () => {
+        setLista(lista.filter(item => item.id !== taskToDelete));
+        setTaskToDelete(null);
+    };
+
+    const cancelDelete = () => {
+        setTaskToDelete(null);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -72,8 +88,19 @@ export default function Dashboard() {
     }
 
     const handleClear = () => {
-        setLista([])
-    }
+        setShowResetModal(true);
+    };
+
+    const confirmClear = () => {
+        setLista([]);
+        setShowResetModal(false);
+    };
+
+    const cancelClear = () => {
+        setShowResetModal(false);
+    };
+
+
 
     return (
 
@@ -142,10 +169,41 @@ export default function Dashboard() {
                                 </div>
                             </div>
                             <button onClick={() => handleToggle(item.id)}>{item.status ? 'Desmarcar' : 'Concluir'}</button>
+                            <button
+                                onClick={() => handleDeleteTask(item.id)}
+                                className="delete-task-button"
+                                title="Apagar tarefa"
+                            >
+                                <img src={trashIcon} alt="Apagar" className="trash-icon" />
+                            </button>
                         </li>
 
                     )}
                 </ul>
+                {showResetModal && (
+                    <div className="modal-overlay">
+                        <div className="modal">
+                            <h3>Tem certeza que deseja resetar a lista?</h3>
+                            <p>Todas as tarefas serão permanentemente removidas.</p>
+                            <div className="modal-buttons">
+                                <button onClick={confirmClear} className="confirm-button">Sim, resetar</button>
+                                <button onClick={cancelClear} className="cancel-button">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+                {taskToDelete && (
+                    <div className="modal-overlay">
+                        <div className="modal">
+                            <h3>Tem certeza que deseja apagar esta tarefa?</h3>
+                            <p>Esta ação não pode ser desfeita.</p>
+                            <div className="modal-buttons">
+                                <button onClick={confirmDelete} className="confirm-button">Sim, apagar</button>
+                                <button onClick={cancelDelete} className="cancel-button">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
 
